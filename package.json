@@ -18,6 +18,8 @@
     "@angular/platform-browser": "^14.1.0",
     "@angular/platform-browser-dynamic": "^14.1.0",
     "@angular/router": "^14.1.0",
+    "@aws-amplify/ui-angular": "^2.4.21",
+    "aws-amplify": "^4.3.35",
     "ngx-bootstrap": "^9.0.0",
     "rxjs": "~7.5.0",
     "rxjs-compat": "^6.6.7",
