@@ -19,7 +19,7 @@ export class AppComponent implements OnInit{
 
   constructor(private httpClient:HttpClient){}
 
-  private baseURL:string='http://localhost:8080';
+  private baseURL:string='http://landonhotelbackend-env.eba-4iedszhm.us-east-1.elasticbeanstalk.com';
   private getUrl:string = this.baseURL + '/room/reservation/v1/';
   private postUrl:string = this.baseURL + '/room/reservation/v1';
   public submitted!:boolean;
@@ -46,6 +46,8 @@ export class AppComponent implements OnInit{
       this.currentCheckInVal = x.checkin;
       this.currentCheckOutVal = x.checkout;
     });
+
+    this.getMessage();
   }
 
     onSubmit({value,valid}:{value:Roomsearch,valid:boolean}){
@@ -78,6 +80,12 @@ export class AppComponent implements OnInit{
   /*mapRoom(response:HttpResponse<any>): Room[]{
     return response.body;
   }*/
+
+    getMessage(): void {
+      this.httpClient.get(this.baseURL + '/room/reservation/v1/message').subscribe((data: any) => {
+        console.log(data.message);
+      });
+    }
 
     getAll(): Observable<any> {
       
